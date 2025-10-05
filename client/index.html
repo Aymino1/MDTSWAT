@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MDT SWAT - Los Santos</title>
+  <style>
+    /* ----------------------------
+       BASE GÉNÉRALE
+    ----------------------------- */
+    :root {
+      --noir: #0a0a0a;
+      --gris-fonce: #1a1a1a;
+      --gris-clair: #2a2a2a;
+      --bleu-swat: #0d6efd;
+      --rouge-swat: #dc3545;
+      --blanc: #f8f9fa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--noir);
+      color: var(--blanc);
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ----------------------------
+       HEADER (BANDEAU HAUT)
+    ----------------------------- */
+    header {
+      background: linear-gradient(90deg, var(--gris-fonce), var(--gris-clair));
+      border-bottom: 2px solid var(--bleu-swat);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 1.5rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      position: relative;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--blanc);
+      text-shadow: 0 0 8px rgba(13,110,253,0.8);
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      color: var(--blanc);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: var(--bleu-swat);
+      transition: 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--bleu-swat);
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* ----------------------------
+       CONTENU PRINCIPAL
+    ----------------------------- */
+    main {
+      flex: 1;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content {
+      text-align: center;
+      z-index: 1;
+    }
+
+    .content h1 {
+      font-size: 2.5rem;
+      text-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .content p {
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    /* ----------------------------
+       EFFETS GYROPHARES
+    ----------------------------- */
+    .gyro {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      opacity: 0.15;
+      filter: blur(120px);
+      animation: gyro 6s infinite ease-in-out;
+    }
+
+    .gyro.blue {
+      background-color: var(--bleu-swat);
+      top: -100px;
+      left: -150px;
+      animation-delay: 0s;
+    }
+
+    .gyro.red {
+      background-color: var(--rouge-swat);
+      bottom: -100px;
+      right: -150px;
+      animation-delay: 3s;
+    }
+
+    @keyframes gyro {
+      0%, 100% { opacity: 0.1; transform: scale(1); }
+      50% { opacity: 0.25; transform: scale(1.2); }
+    }
+
+    /* ----------------------------
+       FOOTER
+    ----------------------------- */
+    footer {
+      background-color: var(--gris-fonce);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.8rem;
+      color: #888;
+      border-top: 1px solid var(--gris-clair);
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SWAT</div>
+    <nav>
+      <a href="#">Carte</a>
+      <a href="#">Tactiques</a>
+      <a href="#">Membres</a>
+      <a href="#">Opérations</a>
+      <a href="#">Escouades</a>
+      <a href="#">Plan Tactique</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="gyro blue"></div>
+    <div class="gyro red"></div>
+
+    <!-- Remplace la div .content dans ton index.html (ou laisse React gérer) -->
+<div class="content">
+  <h1 style="text-transform:uppercase;">BIENVENUE SUR LE SYSTÈME MDT SWAT</h1>
+  <p style="margin-top:0.6rem; color:#cfcfcf;">DIVISION DU SPECIAL WEAPONS AND TACTICS</p>
+</div>
+
+  </main>
+
+  <footer>
+    © 2025 Los Santos SWAT • Tous droits réservés
+  </footer>
+</body>
+</html>
+
